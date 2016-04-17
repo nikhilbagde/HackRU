@@ -98,49 +98,12 @@ public class Driver {
                 for (int i=0; i<90; i++) {
                     scoreArray[x][y] = StringOperations.compareString(dictionary[x][i], dictionary[y][i]);
                     count += StringOperations.compareString(dictionary[x][i], dictionary[y][i]);
-
                 }
                 scorelist[z] = scoreArray[x][y];
                 countList[z] = count;
                 z++;
-                //inputProcessor.writeLineToFile(outputFile, scoreArray[x][y], count);
             }
         }
         inputProcessor.writeLineToFile(outputFile, countList);
-        /*
-        counter =0;
-        System.out.print("[ ");
-        System.out.print("[");
-        for (int i = 1; i <= countList.length; i++) {
-            *//*if (i % 6 != 0) {
-                if(i%50 !=0) {
-                    System.out.print(countList[i - 1] + ",");
-                }else{
-                    System.out.print(countList[i - 1]);
-                }
-
-            }else {
-                System.out.println("],");
-                if(i== countList.length -1) {
-                    System.out.println("]");
-                }else {
-                    System.out.print("[");
-                }
-            }*//*
-            while(i%50 !=0) {
-                System.out.print(countList[i - 1] + ",");
-                inputProcessor.writeLineToFile(outputFile, countList);
-                i++;
-            }
-                System.out.print(countList[i - 1] + "],");
-                System.out.println();
-            if(i!= countList.length-1)
-                System.out.print("[");
-
-        }
-
-        System.out.println("]");*/
-
-
     }
 }
