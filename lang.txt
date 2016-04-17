@@ -2,8 +2,7 @@ Arabic
 Bosnian (Latin)
 Bulgarian
 Catalan
-Chinese Simplified
-Chinese Traditional
+Chinese
 Croatian
 Czech
 Danish
@@ -20,8 +19,8 @@ Hindi
 Hmong Daw
 Hungarian
 Indonesian
+Irish
 Italian
-Japanese
 Kiswahili
 Klingon
 Klingon (pIqaD)
@@ -43,10 +42,8 @@ Slovak
 Slovenian
 Spanish
 Swedish
-Thai
 Turkish
 Ukrainian
-Urdu
 Vietnamese
 Welsh
 Yucatec Maya

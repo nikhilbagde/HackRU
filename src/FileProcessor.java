@@ -6,6 +6,8 @@ import java.io.*;
 public class FileProcessor {
     String fileName;
     public BufferedReader reader = null;
+    public BufferedWriter bw = null;
+    public int fileEmptyFlag = 0;
 
     /**
      * Constructor will initiate buffer reader object provided file name
@@ -30,4 +32,40 @@ public class FileProcessor {
         //line = scanner.nextLine();
         return line;
     }
-}
+    public void writeLineToFile(String outputFile, int[][] outputStr) {
+
+        try {
+            if (bw == null) {
+
+                if (fileEmptyFlag == 0) {
+                    PrintWriter writer = new PrintWriter(outputFile);
+                    writer.print("");
+                    fileEmptyFlag = 1;
+                }
+
+                bw = new BufferedWriter(new FileWriter(outputFile, true));
+            }
+        } catch (IOException e) {
+            System.out.println("IOException occured while opening file " + outputFile + ". The file may be corrupt, unreadable or may not exist.");
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        try {
+            bw.write(String.valueOf(outputStr));
+            bw.newLine();
+        } catch (IOException e) {
+            System.out.println("Error occured while writing to file " + outputFile + ".");
+            System.exit(1);
+        } finally {
+            try {
+                bw.close();
+                bw = null;
+            } catch (IOException e) {
+                System.out.println("Error occured while closing file " + outputFile + ".");
+                System.exit(1);
+            }
+        }
+
+        }
+    }

@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,43 +13,34 @@ public class StringOperations {
 
     /**
      * Code to process the lines from the file, apply string operations,
-        and determine the most frequently occurring element name.
+     and determine the most frequently occurring element name.
      * processInputString() will process each line from file, parse it and then
      * store it into map with its count showing frequency of element string.
-     * @param lineIrregular
+     * @param
      *
      */
-    public void processInputString(String lineIrregular){
-        //int count =1;
-        if(lineIrregular!=null){
-            String line = lineIrregular.trim();
-            //System.out.println(line);
+    public static int compareString(String os, String ns){
+        int retVal=0;
 
-            if(line.trim().contains("element name=\"")){
-                String elementName = parseLine(line);
-                //arrayList.add(elementName);
-                Iterator<String> keyItr = map.keySet().iterator();
-
-                if(map.isEmpty()) {
-                    map.put(elementName, 1);
-                }else {
-                    int matchFound = 0;
-                    while (keyItr.hasNext()) {
-                        if (keyItr.next().equals(elementName)) {
-                            matchFound = 1;
-                            break;
-                        }
-                    }
-                    if (matchFound == 1) {
-                        int count = 0;
-                        count = map.get(elementName);
-                        map.replace(elementName, ++count);
-                    }else{
-                        map.put(elementName, 1);
-                    }
+        if (os.length()<ns.length()) {
+            for (int i=0; i<os.length(); i++) {
+                if (os.charAt(i)==ns.charAt(i)) {
+                    retVal++;
+                } else {
+                    retVal--;
+                }
+            }
+        } else {
+            for (int i=0; i<ns.length(); i++) {
+                if (os.charAt(i)==ns.charAt(i)) {
+                    retVal++;
+                } else {
+                    retVal--;
                 }
             }
         }
+
+        return retVal;
     }
 
     /**
@@ -103,7 +95,7 @@ public class StringOperations {
     public String parseLine(String line){
         int startPoint = line.indexOf("\"");
         int lastPoint = line.indexOf("\"",line.indexOf("\"")+1);
-       return line.substring(startPoint+1,lastPoint);
+        return line.substring(startPoint+1,lastPoint);
     }
 
 }

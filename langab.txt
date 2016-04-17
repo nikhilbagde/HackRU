@@ -2,8 +2,7 @@ ar
 bs-Latn
 bg
 ca
-zh-CHS
-zh-CHT
+zh
 hr
 cs
 da
@@ -20,8 +19,8 @@ hi
 mww
 hu
 id
+ga
 it
-ja
 sw
 tlh
 tlh-Qaak
@@ -43,10 +42,8 @@ sk
 sl
 es
 sv
-th
 tr
 uk
-ur
 vi
 cy
 yua
