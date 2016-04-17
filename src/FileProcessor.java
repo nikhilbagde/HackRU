@@ -100,7 +100,7 @@ public class FileProcessor {
                 }
                 bw.write(countList[i - 1] + "],");
                 bw.newLine();
-                if(i!= countList.length-1)
+                if(i!= countList.length)
                     bw.write("[");
             }
             bw.write("]");
