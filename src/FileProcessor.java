@@ -70,6 +70,18 @@ public class FileProcessor {
 
         }
 
+    /**
+     * specialized write function to print output in format
+     * [    [x,x,x,x,x....50 times],
+     *      [x,x,x,x,x....50 times],
+     *      .
+     *      .50
+     *      .times
+     *      .
+     *      [x,x,x,x,x....50 times], ] for javascript handling
+     * @param outputFile
+     * @param countList
+     */
     public void writeLineToFile(String outputFile, int[] countList) {
 
         try {
