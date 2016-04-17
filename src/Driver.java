@@ -89,15 +89,58 @@ public class Driver {
          * And matched frequency count is store in scoreArray and Writing that to file
          */
         int count = 0;
+        int z =0;
+        int[] scorelist = new int[2500];
+        int[] countList= new int[2500];
         for (int x=0; x<50; x++) {
             for (int y=0; y<50; y++) {
                 count = 0;
                 for (int i=0; i<90; i++) {
                     scoreArray[x][y] = StringOperations.compareString(dictionary[x][i], dictionary[y][i]);
                     count += StringOperations.compareString(dictionary[x][i], dictionary[y][i]);
+
                 }
-                inputProcessor.writeLineToFile(outputFile, scoreArray[x][y], count);
+                scorelist[z] = scoreArray[x][y];
+                countList[z] = count;
+                z++;
+                //inputProcessor.writeLineToFile(outputFile, scoreArray[x][y], count);
             }
         }
+        inputProcessor.writeLineToFile(outputFile, countList);
+        /*
+        counter =0;
+        System.out.print("[ ");
+        System.out.print("[");
+        for (int i = 1; i <= countList.length; i++) {
+            *//*if (i % 6 != 0) {
+                if(i%50 !=0) {
+                    System.out.print(countList[i - 1] + ",");
+                }else{
+                    System.out.print(countList[i - 1]);
+                }
+
+            }else {
+                System.out.println("],");
+                if(i== countList.length -1) {
+                    System.out.println("]");
+                }else {
+                    System.out.print("[");
+                }
+            }*//*
+            while(i%50 !=0) {
+                System.out.print(countList[i - 1] + ",");
+                inputProcessor.writeLineToFile(outputFile, countList);
+                i++;
+            }
+                System.out.print(countList[i - 1] + "],");
+                System.out.println();
+            if(i!= countList.length-1)
+                System.out.print("[");
+
+        }
+
+        System.out.println("]");*/
+
+
     }
 }

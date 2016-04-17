@@ -52,7 +52,8 @@ public class FileProcessor {
         }
 
         try {
-            bw.write(String.valueOf(outputStr) + " "  + count);
+            //bw.write(String.valueOf(outputStr) + " "  + count);
+            bw.write(String.valueOf(count));
             bw.newLine();
         } catch (IOException e) {
             System.out.println("Error occured while writing to file " + outputFile + ".");
@@ -68,4 +69,56 @@ public class FileProcessor {
         }
 
         }
+
+    public void writeLineToFile(String outputFile, int[] countList) {
+
+        try {
+            if (bw == null) {
+
+                if (fileEmptyFlag == 0) {
+                    PrintWriter writer = new PrintWriter(outputFile);
+                    writer.print("");
+                    fileEmptyFlag = 1;
+                }
+
+                bw = new BufferedWriter(new FileWriter(outputFile, true));
+            }
+        } catch (IOException e) {
+            System.out.println("IOException occured while opening file " + outputFile + ". The file may be corrupt, unreadable or may not exist.");
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        try {
+            //bw.write(String.valueOf(outputStr) + " "  + count);
+            bw.write("[ ");
+            bw.write("[");
+            for (int i = 1; i <= countList.length; i++) {
+                while(i%50 !=0) {
+                    bw.write(countList[i - 1] + ",");
+                    i++;
+                }
+                bw.write(countList[i - 1] + "],");
+                bw.newLine();
+                if(i!= countList.length-1)
+                    bw.write("[");
+            }
+            bw.write("]");
+            //bw.write(String.valueOf(count));
+            //bw.newLine();
+        } catch (IOException e) {
+            System.out.println("Error occured while writing to file " + outputFile + ".");
+            System.exit(1);
+        } finally {
+            try {
+                bw.close();
+                bw = null;
+            } catch (IOException e) {
+                System.out.println("Error occured while closing file " + outputFile + ".");
+                System.exit(1);
+            }
+        }
+
+    }
+
     }
