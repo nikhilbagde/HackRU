@@ -32,7 +32,7 @@ public class FileProcessor {
         //line = scanner.nextLine();
         return line;
     }
-    public void writeLineToFile(String outputFile, int[][] outputStr) {
+    public void writeLineToFile(String outputFile, int outputStr, int count) {
 
         try {
             if (bw == null) {
@@ -52,7 +52,7 @@ public class FileProcessor {
         }
 
         try {
-            bw.write(String.valueOf(outputStr));
+            bw.write(String.valueOf(outputStr) + " "  + count);
             bw.newLine();
         } catch (IOException e) {
             System.out.println("Error occured while writing to file " + outputFile + ".");

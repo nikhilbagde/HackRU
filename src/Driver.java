@@ -83,9 +83,9 @@ public class Driver {
         }
 
 
-        BufferedWriter bw = null;
+        //BufferedWriter bw = null;
         int count = 0;
-        bw = new BufferedWriter(new FileWriter(outputFile, true));
+        //bw = new BufferedWriter(new FileWriter(outputFile, true));
         for (int x=0; x<50; x++) {
             for (int y=0; y<50; y++) {
                 count = 0;
@@ -100,15 +100,15 @@ public class Driver {
                     //bw.write(String.valueOf(scoreArray[x][y] + " " + count));
                     //bw.newLine();
                 }
-
-                bw.write(String.valueOf(scoreArray[x][y] + " " + count));
-                bw.newLine();
+                inputProcessor.writeLineToFile(outputFile, scoreArray[x][y], count);
+                //bw.write(String.valueOf(scoreArray[x][y] + " " + count));
+                //bw.newLine();
             }
 
 
         }
 
-        System.out.println("This is final output :" + Arrays.toString(scoreArray));
-        bw.close();
+        //System.out.println("This is final output :" + Arrays.toString(scoreArray));
+        //bw.close();
     }
 }
